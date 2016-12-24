@@ -6,6 +6,7 @@
         <%= @user.name %>
       </h1>
     </section>
+    <p>Location: <%= @user.location.present? ? @user.location : "--no-data--" %></p>
   </aside>
   <div class="col-md-8">
     <%= render 'follow_form' if logged_in? %>

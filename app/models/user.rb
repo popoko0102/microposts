@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
     has_secure_password
+    validates :location, allow_blank: true, length: { minimum: 2, maximum: 30 } 
     
     has_many :microposts #userモデルとmicropostモデルでそれぞれ関連付け8.2
 
@@ -29,5 +30,7 @@ class User < ActiveRecord::Base
   def following?(other_user)
     following_users.include?(other_user)
   end
+                   
+    
 end
 
